@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FDA79B711CF5CD4E002EB69F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79B701CF5CD4E002EB69F /* main.m */; };
+		FDA79B741CF5CD4E002EB69F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79B731CF5CD4E002EB69F /* AppDelegate.m */; };
+		FDA79B7A1CF5CD4F002EB69F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDA79B781CF5CD4F002EB69F /* Main.storyboard */; };
+		FDA79B7D1CF5CD4F002EB69F /* Sell_product.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDA79B7B1CF5CD4F002EB69F /* Sell_product.xcdatamodeld */; };
+		FDA79B7F1CF5CD4F002EB69F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDA79B7E1CF5CD4F002EB69F /* Assets.xcassets */; };
+		FDA79B821CF5CD4F002EB69F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDA79B801CF5CD4F002EB69F /* LaunchScreen.storyboard */; };
+		FDA79B8D1CF5CD50002EB69F /* Sell_productTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79B8C1CF5CD50002EB69F /* Sell_productTests.m */; };
+		FDA79B981CF5CD50002EB69F /* Sell_productUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79B971CF5CD50002EB69F /* Sell_productUITests.m */; };
+		FDA79BA91CF5CE83002EB69F /* TSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79BA81CF5CE83002EB69F /* TSDataManager.m */; };
+		FDA79BAD1CF5CF4A002EB69F /* TSProductsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79BAC1CF5CF4A002EB69F /* TSProductsTableViewController.m */; };
+		FDA79BB11CF5D141002EB69F /* TSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79BB01CF5D141002EB69F /* TSTableViewCell.m */; };
+		FDA79BB41CF5D464002EB69F /* TSDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79BB31CF5D464002EB69F /* TSDetailsTableViewController.m */; };
+		FDA79BB71CF5D47F002EB69F /* TSDescriptionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79BB61CF5D47F002EB69F /* TSDescriptionTableViewController.m */; };
+		FDA79BC01CF5DBEB002EB69F /* TSImages+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79BB91CF5DBEB002EB69F /* TSImages+CoreDataProperties.m */; };
+		FDA79BC11CF5DBEB002EB69F /* TSImages.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79BBB1CF5DBEB002EB69F /* TSImages.m */; };
+		FDA79BC21CF5DBEB002EB69F /* TSProduct+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79BBD1CF5DBEB002EB69F /* TSProduct+CoreDataProperties.m */; };
+		FDA79BC31CF5DBEB002EB69F /* TSProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA79BBF1CF5DBEB002EB69F /* TSProduct.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDA79B891CF5CD50002EB69F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDA79B641CF5CD4D002EB69F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDA79B6B1CF5CD4E002EB69F;
+			remoteInfo = "Sell product";
+		};
+		FDA79B941CF5CD50002EB69F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDA79B641CF5CD4D002EB69F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDA79B6B1CF5CD4E002EB69F;
+			remoteInfo = "Sell product";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FDA79B6C1CF5CD4E002EB69F /* Sell product.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sell product.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDA79B701CF5CD4E002EB69F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FDA79B721CF5CD4E002EB69F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FDA79B731CF5CD4E002EB69F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FDA79B791CF5CD4F002EB69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FDA79B7C1CF5CD4F002EB69F /* Sell_product.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sell_product.xcdatamodel; sourceTree = "<group>"; };
+		FDA79B7E1CF5CD4F002EB69F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FDA79B811CF5CD4F002EB69F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FDA79B831CF5CD4F002EB69F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDA79B881CF5CD4F002EB69F /* Sell productTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sell productTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDA79B8C1CF5CD50002EB69F /* Sell_productTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sell_productTests.m; sourceTree = "<group>"; };
+		FDA79B8E1CF5CD50002EB69F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDA79B931CF5CD50002EB69F /* Sell productUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sell productUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDA79B971CF5CD50002EB69F /* Sell_productUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sell_productUITests.m; sourceTree = "<group>"; };
+		FDA79B991CF5CD50002EB69F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDA79BA71CF5CE83002EB69F /* TSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDataManager.h; sourceTree = "<group>"; };
+		FDA79BA81CF5CE83002EB69F /* TSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDataManager.m; sourceTree = "<group>"; };
+		FDA79BAB1CF5CF4A002EB69F /* TSProductsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSProductsTableViewController.h; sourceTree = "<group>"; };
+		FDA79BAC1CF5CF4A002EB69F /* TSProductsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSProductsTableViewController.m; sourceTree = "<group>"; };
+		FDA79BAF1CF5D141002EB69F /* TSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTableViewCell.h; sourceTree = "<group>"; };
+		FDA79BB01CF5D141002EB69F /* TSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTableViewCell.m; sourceTree = "<group>"; };
+		FDA79BB21CF5D464002EB69F /* TSDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDetailsTableViewController.h; sourceTree = "<group>"; };
+		FDA79BB31CF5D464002EB69F /* TSDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDetailsTableViewController.m; sourceTree = "<group>"; };
+		FDA79BB51CF5D47F002EB69F /* TSDescriptionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSDescriptionTableViewController.h; sourceTree = "<group>"; };
+		FDA79BB61CF5D47F002EB69F /* TSDescriptionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDescriptionTableViewController.m; sourceTree = "<group>"; };
+		FDA79BB81CF5DBEB002EB69F /* TSImages+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSImages+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FDA79BB91CF5DBEB002EB69F /* TSImages+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TSImages+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FDA79BBA1CF5DBEB002EB69F /* TSImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSImages.h; sourceTree = "<group>"; };
+		FDA79BBB1CF5DBEB002EB69F /* TSImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSImages.m; sourceTree = "<group>"; };
+		FDA79BBC1CF5DBEB002EB69F /* TSProduct+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSProduct+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FDA79BBD1CF5DBEB002EB69F /* TSProduct+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TSProduct+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FDA79BBE1CF5DBEB002EB69F /* TSProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSProduct.h; sourceTree = "<group>"; };
+		FDA79BBF1CF5DBEB002EB69F /* TSProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSProduct.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FDA79B691CF5CD4E002EB69F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDA79B851CF5CD4F002EB69F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDA79B901CF5CD50002EB69F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FDA79B631CF5CD4D002EB69F = {
+			isa = PBXGroup;
+			children = (
+				FDA79B6E1CF5CD4E002EB69F /* Sell product */,
+				FDA79B8B1CF5CD50002EB69F /* Sell productTests */,
+				FDA79B961CF5CD50002EB69F /* Sell productUITests */,
+				FDA79B6D1CF5CD4E002EB69F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FDA79B6D1CF5CD4E002EB69F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDA79B6C1CF5CD4E002EB69F /* Sell product.app */,
+				FDA79B881CF5CD4F002EB69F /* Sell productTests.xctest */,
+				FDA79B931CF5CD50002EB69F /* Sell productUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDA79B6E1CF5CD4E002EB69F /* Sell product */ = {
+			isa = PBXGroup;
+			children = (
+				FDA79BA51CF5CE19002EB69F /* App */,
+				FDA79BA61CF5CE2D002EB69F /* Core Data */,
+				FDA79BAA1CF5CE96002EB69F /* Cell */,
+				FDA79BAE1CF5CF51002EB69F /* Controllers */,
+				FDA79B781CF5CD4F002EB69F /* Main.storyboard */,
+				FDA79B7E1CF5CD4F002EB69F /* Assets.xcassets */,
+				FDA79B801CF5CD4F002EB69F /* LaunchScreen.storyboard */,
+				FDA79B831CF5CD4F002EB69F /* Info.plist */,
+				FDA79B7B1CF5CD4F002EB69F /* Sell_product.xcdatamodeld */,
+				FDA79B6F1CF5CD4E002EB69F /* Supporting Files */,
+			);
+			path = "Sell product";
+			sourceTree = "<group>";
+		};
+		FDA79B6F1CF5CD4E002EB69F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FDA79B701CF5CD4E002EB69F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FDA79B8B1CF5CD50002EB69F /* Sell productTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDA79B8C1CF5CD50002EB69F /* Sell_productTests.m */,
+				FDA79B8E1CF5CD50002EB69F /* Info.plist */,
+			);
+			path = "Sell productTests";
+			sourceTree = "<group>";
+		};
+		FDA79B961CF5CD50002EB69F /* Sell productUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FDA79B971CF5CD50002EB69F /* Sell_productUITests.m */,
+				FDA79B991CF5CD50002EB69F /* Info.plist */,
+			);
+			path = "Sell productUITests";
+			sourceTree = "<group>";
+		};
+		FDA79BA51CF5CE19002EB69F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FDA79B721CF5CD4E002EB69F /* AppDelegate.h */,
+				FDA79B731CF5CD4E002EB69F /* AppDelegate.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		FDA79BA61CF5CE2D002EB69F /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				FDA79BA71CF5CE83002EB69F /* TSDataManager.h */,
+				FDA79BA81CF5CE83002EB69F /* TSDataManager.m */,
+				FDA79BBC1CF5DBEB002EB69F /* TSProduct+CoreDataProperties.h */,
+				FDA79BBD1CF5DBEB002EB69F /* TSProduct+CoreDataProperties.m */,
+				FDA79BBE1CF5DBEB002EB69F /* TSProduct.h */,
+				FDA79BBF1CF5DBEB002EB69F /* TSProduct.m */,
+				FDA79BB81CF5DBEB002EB69F /* TSImages+CoreDataProperties.h */,
+				FDA79BB91CF5DBEB002EB69F /* TSImages+CoreDataProperties.m */,
+				FDA79BBA1CF5DBEB002EB69F /* TSImages.h */,
+				FDA79BBB1CF5DBEB002EB69F /* TSImages.m */,
+			);
+			name = "Core Data";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FDA79BAA1CF5CE96002EB69F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FDA79BAF1CF5D141002EB69F /* TSTableViewCell.h */,
+				FDA79BB01CF5D141002EB69F /* TSTableViewCell.m */,
+			);
+			name = Cell;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FDA79BAE1CF5CF51002EB69F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDA79BAB1CF5CF4A002EB69F /* TSProductsTableViewController.h */,
+				FDA79BAC1CF5CF4A002EB69F /* TSProductsTableViewController.m */,
+				FDA79BB21CF5D464002EB69F /* TSDetailsTableViewController.h */,
+				FDA79BB31CF5D464002EB69F /* TSDetailsTableViewController.m */,
+				FDA79BB51CF5D47F002EB69F /* TSDescriptionTableViewController.h */,
+				FDA79BB61CF5D47F002EB69F /* TSDescriptionTableViewController.m */,
+			);
+			name = Controllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FDA79B6B1CF5CD4E002EB69F /* Sell product */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDA79B9C1CF5CD50002EB69F /* Build configuration list for PBXNativeTarget "Sell product" */;
+			buildPhases = (
+				FDA79B681CF5CD4E002EB69F /* Sources */,
+				FDA79B691CF5CD4E002EB69F /* Frameworks */,
+				FDA79B6A1CF5CD4E002EB69F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sell product";
+			productName = "Sell product";
+			productReference = FDA79B6C1CF5CD4E002EB69F /* Sell product.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FDA79B871CF5CD4F002EB69F /* Sell productTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDA79B9F1CF5CD50002EB69F /* Build configuration list for PBXNativeTarget "Sell productTests" */;
+			buildPhases = (
+				FDA79B841CF5CD4F002EB69F /* Sources */,
+				FDA79B851CF5CD4F002EB69F /* Frameworks */,
+				FDA79B861CF5CD4F002EB69F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDA79B8A1CF5CD50002EB69F /* PBXTargetDependency */,
+			);
+			name = "Sell productTests";
+			productName = "Sell productTests";
+			productReference = FDA79B881CF5CD4F002EB69F /* Sell productTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FDA79B921CF5CD50002EB69F /* Sell productUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDA79BA21CF5CD50002EB69F /* Build configuration list for PBXNativeTarget "Sell productUITests" */;
+			buildPhases = (
+				FDA79B8F1CF5CD50002EB69F /* Sources */,
+				FDA79B901CF5CD50002EB69F /* Frameworks */,
+				FDA79B911CF5CD50002EB69F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDA79B951CF5CD50002EB69F /* PBXTargetDependency */,
+			);
+			name = "Sell productUITests";
+			productName = "Sell productUITests";
+			productReference = FDA79B931CF5CD50002EB69F /* Sell productUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FDA79B641CF5CD4D002EB69F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TS;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Tsvigun Alexandr";
+				TargetAttributes = {
+					FDA79B6B1CF5CD4E002EB69F = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 5D7GRV784H;
+					};
+					FDA79B871CF5CD4F002EB69F = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 5D7GRV784H;
+						TestTargetID = FDA79B6B1CF5CD4E002EB69F;
+					};
+					FDA79B921CF5CD50002EB69F = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 5D7GRV784H;
+						TestTargetID = FDA79B6B1CF5CD4E002EB69F;
+					};
+				};
+			};
+			buildConfigurationList = FDA79B671CF5CD4D002EB69F /* Build configuration list for PBXProject "Sell product" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FDA79B631CF5CD4D002EB69F;
+			productRefGroup = FDA79B6D1CF5CD4E002EB69F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FDA79B6B1CF5CD4E002EB69F /* Sell product */,
+				FDA79B871CF5CD4F002EB69F /* Sell productTests */,
+				FDA79B921CF5CD50002EB69F /* Sell productUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FDA79B6A1CF5CD4E002EB69F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDA79B821CF5CD4F002EB69F /* LaunchScreen.storyboard in Resources */,
+				FDA79B7F1CF5CD4F002EB69F /* Assets.xcassets in Resources */,
+				FDA79B7A1CF5CD4F002EB69F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDA79B861CF5CD4F002EB69F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDA79B911CF5CD50002EB69F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FDA79B681CF5CD4E002EB69F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDA79BA91CF5CE83002EB69F /* TSDataManager.m in Sources */,
+				FDA79BC01CF5DBEB002EB69F /* TSImages+CoreDataProperties.m in Sources */,
+				FDA79BC31CF5DBEB002EB69F /* TSProduct.m in Sources */,
+				FDA79BB41CF5D464002EB69F /* TSDetailsTableViewController.m in Sources */,
+				FDA79B7D1CF5CD4F002EB69F /* Sell_product.xcdatamodeld in Sources */,
+				FDA79BC11CF5DBEB002EB69F /* TSImages.m in Sources */,
+				FDA79BB71CF5D47F002EB69F /* TSDescriptionTableViewController.m in Sources */,
+				FDA79BB11CF5D141002EB69F /* TSTableViewCell.m in Sources */,
+				FDA79BC21CF5DBEB002EB69F /* TSProduct+CoreDataProperties.m in Sources */,
+				FDA79BAD1CF5CF4A002EB69F /* TSProductsTableViewController.m in Sources */,
+				FDA79B741CF5CD4E002EB69F /* AppDelegate.m in Sources */,
+				FDA79B711CF5CD4E002EB69F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDA79B841CF5CD4F002EB69F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDA79B8D1CF5CD50002EB69F /* Sell_productTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDA79B8F1CF5CD50002EB69F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDA79B981CF5CD50002EB69F /* Sell_productUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDA79B8A1CF5CD50002EB69F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDA79B6B1CF5CD4E002EB69F /* Sell product */;
+			targetProxy = FDA79B891CF5CD50002EB69F /* PBXContainerItemProxy */;
+		};
+		FDA79B951CF5CD50002EB69F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDA79B6B1CF5CD4E002EB69F /* Sell product */;
+			targetProxy = FDA79B941CF5CD50002EB69F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FDA79B781CF5CD4F002EB69F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDA79B791CF5CD4F002EB69F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FDA79B801CF5CD4F002EB69F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDA79B811CF5CD4F002EB69F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FDA79B9A1CF5CD50002EB69F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FDA79B9B1CF5CD50002EB69F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FDA79B9D1CF5CD50002EB69F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Sell product/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tsvigunalexandr.Sell-product";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FDA79B9E1CF5CD50002EB69F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Sell product/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tsvigunalexandr.Sell-product";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FDA79BA01CF5CD50002EB69F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Sell productTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tsvigunalexandr.Sell-productTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sell product.app/Sell product";
+			};
+			name = Debug;
+		};
+		FDA79BA11CF5CD50002EB69F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Sell productTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tsvigunalexandr.Sell-productTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sell product.app/Sell product";
+			};
+			name = Release;
+		};
+		FDA79BA31CF5CD50002EB69F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Sell productUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tsvigunalexandr.Sell-productUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Sell product";
+			};
+			name = Debug;
+		};
+		FDA79BA41CF5CD50002EB69F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Sell productUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tsvigunalexandr.Sell-productUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Sell product";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FDA79B671CF5CD4D002EB69F /* Build configuration list for PBXProject "Sell product" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDA79B9A1CF5CD50002EB69F /* Debug */,
+				FDA79B9B1CF5CD50002EB69F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDA79B9C1CF5CD50002EB69F /* Build configuration list for PBXNativeTarget "Sell product" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDA79B9D1CF5CD50002EB69F /* Debug */,
+				FDA79B9E1CF5CD50002EB69F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDA79B9F1CF5CD50002EB69F /* Build configuration list for PBXNativeTarget "Sell productTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDA79BA01CF5CD50002EB69F /* Debug */,
+				FDA79BA11CF5CD50002EB69F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDA79BA21CF5CD50002EB69F /* Build configuration list for PBXNativeTarget "Sell productUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDA79BA31CF5CD50002EB69F /* Debug */,
+				FDA79BA41CF5CD50002EB69F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FDA79B7B1CF5CD4F002EB69F /* Sell_product.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FDA79B7C1CF5CD4F002EB69F /* Sell_product.xcdatamodel */,
+			);
+			currentVersion = FDA79B7C1CF5CD4F002EB69F /* Sell_product.xcdatamodel */;
+			path = Sell_product.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FDA79B641CF5CD4D002EB69F /* Project object */;
+}
