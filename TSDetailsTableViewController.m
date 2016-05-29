@@ -51,7 +51,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    [self.navigationController setToolbarHidden:YES animated:YES];
+    self.hidesBottomBarWhenPushed = YES;
 }
 
 #pragma mark - NSManagedObjectContext

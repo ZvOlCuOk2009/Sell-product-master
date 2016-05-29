@@ -30,9 +30,9 @@
     
     [self.tableView setContentInset:UIEdgeInsetsMake(4,0,0,0)];
     
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
-                                                                             target:self action:@selector(addProduct:)];
-    self.navigationItem.rightBarButtonItem = addItem;
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 35, 40)];
+    searchBar.backgroundImage = [[UIImage alloc] init];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,19 +43,29 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    
+    /*
+    UIButton *discover = [[UIButton alloc] initWithFrame:CGRectMake(0, 524, self.view.frame.size.width / 2, 44)];
+    [discover setBackgroundImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+    UIButton *sell = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, 524, self.view.frame.size.width / 2, 44)];
+    [sell setBackgroundImage:[UIImage imageNamed:@"sell"] forState:UIControlStateNormal];
+    [self.navigationController.view addSubview:discover];
+    [self.navigationController.view addSubview:sell];
+     */
+    
     [self.navigationController setToolbarHidden:NO animated:YES];
+    
+    UIButton *discoverButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width / 2, 44)];
+    [discoverButton setBackgroundImage:[UIImage imageNamed:@"discover"] forState:UIControlStateNormal];
+    [discoverButton addTarget:self action:@selector(actionDiscover:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *sellButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height - 44, self.view.frame.size.width / 2, 44)];
+    [sellButton setBackgroundImage:[UIImage imageNamed:@"sell"] forState:UIControlStateNormal];
+    [sellButton addTarget:self action:@selector(actionSell:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.navigationController.view addSubview:discoverButton];
+    [self.navigationController.view addSubview:sellButton];
 }
-
-//-(void)setBackgroundImage:(UIImage *)backgroundImage {
-//    [self setBackgroundImage:backgroundImage
-//                    forState:UIControlStateNormal
-//                  barMetrics:UIBarMetricsDefault];
-//}
-//
-//-(UIImage *)backgroundImage {
-//    return [self backgroundImageForState:UIControlStateNormal
-//                              barMetrics:UIBarMetricsDefault];
-//}
 
 #pragma mark - NSManagedObjectContext
 
@@ -116,6 +126,16 @@
 #pragma mark - Acrions
 
 - (void)addProduct:(UIBarButtonItem *)item
+{
+    
+}
+
+- (void)actionDiscover:(UIBarButtonItem *)item
+{
+    
+}
+
+- (void)actionSell:(UIBarButtonItem *)item
 {
     TSDetailsTableViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TSDetailsTableViewController"];
     [self.navigationController pushViewController:controller animated:YES];

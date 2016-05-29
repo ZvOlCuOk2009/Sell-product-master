@@ -62,16 +62,22 @@
 
 #pragma mark - Actions
 
-- (IBAction)trashButton:(id)sender {
-    
+- (IBAction)trashButton:(id)sender
+{
     [self.managedObjectContext deleteObject:self.currentProduct];
     [self.managedObjectContext save:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (IBAction)editButton:(id)sender {
-    
+- (IBAction)editButton:(id)sender
+{
+    self.currentProduct.name = self.nameLabel.text;
+    self.currentProduct.price = self.priceLabel.text;
+    self.currentProduct.specification = self.descriptionTextView.text;
+    [self.managedObjectContext save:nil];
 }
+
+#pragma mark - UIScrollView
 
 - (void) setupScroll
 {
