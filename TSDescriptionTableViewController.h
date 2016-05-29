@@ -15,8 +15,8 @@
 @property (strong, nonatomic) NSString *price;
 @property (strong, nonatomic) NSString *specification;
 @property (strong, nonatomic) NSArray *images;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UITextView *nameTextView;
+@property (weak, nonatomic) IBOutlet UITextView *priceTextView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 - (void)receiveCell:(TSProduct *)product;

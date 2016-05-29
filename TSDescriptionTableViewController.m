@@ -25,20 +25,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.nameLabel.text = self.name;
-    self.priceLabel.text = [NSString stringWithFormat:@"$%@", self.price];
+    self.nameTextView.text = self.name;
+    self.priceTextView.text = [NSString stringWithFormat:@"$%@", self.price];
     self.descriptionTextView.text = self.specification;
+    
     self.pageControl.numberOfPages = [self.images count];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.nameTextView.scrollEnabled = NO;
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+    self.nameTextView.editable = NO;
+    self.priceTextView.editable = NO;
+    self.descriptionTextView.editable = NO;
     
     [self setupScroll];
 }
@@ -71,8 +77,12 @@
 
 - (IBAction)editButton:(id)sender
 {
-    self.currentProduct.name = self.nameLabel.text;
-    self.currentProduct.price = self.priceLabel.text;
+    self.nameTextView.editable = YES;
+    self.priceTextView.editable = YES;
+    self.descriptionTextView.editable = YES;
+    
+    self.currentProduct.name = self.nameTextView.text;
+    self.currentProduct.price = self.priceTextView.text;
     self.currentProduct.specification = self.descriptionTextView.text;
     [self.managedObjectContext save:nil];
 }
