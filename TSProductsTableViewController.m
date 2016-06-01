@@ -15,11 +15,14 @@
 #import "TSDescriptionTableViewController.h"
 #import <CoreData/CoreData.h>
 
-@interface TSProductsTableViewController () <NSFetchedResultsControllerDelegate>
+@interface TSProductsTableViewController () <NSFetchedResultsControllerDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) TSProduct *product;
+@property (strong, nonatomic) NSArray *arrayNames;
+@property (strong, nonatomic) NSArray *searchResultsArray;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) UISearchBar *searchBar;
 
 @end
 
@@ -28,11 +31,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView setContentInset:UIEdgeInsetsMake(4,0,0,0)];
+    [self.tableView setContentInset:UIEdgeInsetsMake(4, 0, 0, 0)];
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 35, 40)];
     searchBar.backgroundImage = [[UIImage alloc] init];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
+    
+    searchBar.showsCancelButton = YES;
+    searchBar.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +49,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
+    [self.tableView reloadData];
     /*
     UIButton *discover = [[UIButton alloc] initWithFrame:CGRectMake(0, 524, self.view.frame.size.width / 2, 44)];
     [discover setBackgroundImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
@@ -53,7 +59,7 @@
     [self.navigationController.view addSubview:sell];
      */
     
-    [self.navigationController setToolbarHidden:NO animated:YES];
+    self.arrayNames = [NSArray array];
     
     UIButton *discoverButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width / 2, 44)];
     [discoverButton setBackgroundImage:[UIImage imageNamed:@"discover"] forState:UIControlStateNormal];
@@ -63,6 +69,9 @@
     [sellButton setBackgroundImage:[UIImage imageNamed:@"sell"] forState:UIControlStateNormal];
     [sellButton addTarget:self action:@selector(actionSell:) forControlEvents:UIControlEventTouchUpInside];
     
+    discoverButton.tag = 1;
+    sellButton.tag = 2;
+
     [self.navigationController.view addSubview:discoverButton];
     [self.navigationController.view addSubview:sellButton];
 }
@@ -99,7 +108,7 @@
     TSProduct *product = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.nameLabel.text = product.name;
-    cell.priceLabel.text = [NSString stringWithFormat:@"$%@", product.price];
+    cell.priceLabel.text = product.price;
     NSArray *images = [NSKeyedUnarchiver unarchiveObjectWithData:product.images];
     cell.imageProduct.image = [images objectAtIndex:0];
 }
@@ -125,11 +134,6 @@
 
 #pragma mark - Acrions
 
-- (void)addProduct:(UIBarButtonItem *)item
-{
-    
-}
-
 - (void)actionDiscover:(UIBarButtonItem *)item
 {
     
@@ -140,6 +144,91 @@
     TSDetailsTableViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TSDetailsTableViewController"];
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+    [searchBar becomeFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [searchBar setShowsCancelButton:NO animated:YES];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    /*
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"TSProduct"];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TSProduct" inManagedObjectContext:self.managedObjectContext];
+    
+    fetchRequest.resultType = NSDictionaryResultType;
+    fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"name"]];
+    fetchRequest.returnsDistinctResults = YES;
+    
+    self.arrayNames = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    
+    self.searchResultsArray = [self.arrayNames filteredArrayUsingPredicate:resultPredicate];
+    */
+    
+    [self reloadTableView];
+    
+    //NSLog (@"names: %@", self.searchResultsArray);
+}
+
+
+//////////////////////////////
+
+
+- (void)reloadTableView
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TSProduct"
+                                              inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects: sortNameDescriptor, nil];
+    fetchRequest.sortDescriptors = sortDescriptors;
+    
+    //NSPredicate *idPredicate = [NSPredicate predicateWithFormat:@"agency_server_id CONTAINS[cd] %@", agency.server_id];
+    NSString *searchString = self.searchBar.text;
+    if (searchString.length > 0)
+    {
+        NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchString];
+        NSPredicate *orPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:[NSArray arrayWithObjects:namePredicate, nil]];
+//        NSPredicate *andPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:idPredicate, nil]];
+        NSPredicate *finalPred = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:orPredicate, nil]];
+        [fetchRequest setPredicate:finalPred];
+    }
+    else
+    {
+        //[fetchRequest setPredicate:idPredicate];
+    }
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest
+                                                                       managedObjectContext:[self managedObjectContext]sectionNameKeyPath:nil
+                                                                                  cacheName:nil];
+    self.fetchedResultsController.delegate = self;
+    
+    NSError *error = nil;
+    if (![self.fetchedResultsController performFetch:&error])
+    {
+        NSLog(@"Unresolved error %@, %@", [error localizedDescription], [error localizedFailureReason]);
+    };
+    
+    [self.tableView reloadData];
+}
+
+
+//////////////////////////////
+
 
 #pragma mark - Fetched results controller
 

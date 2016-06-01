@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TSProduct.h"
+#import "TSProductsTableViewController.h"
 
-@interface TSDescriptionTableViewController : UITableViewController
+@interface TSDescriptionTableViewController : TSProductsTableViewController
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *price;

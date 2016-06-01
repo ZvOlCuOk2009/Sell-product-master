@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TSProduct.h"
+
 
 @interface TSDetailsTableViewController : UITableViewController
+
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *price;
+@property (strong, nonatomic) NSString *specification;
+@property (strong, nonatomic) NSArray *images;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+
+- (void)editingCurrentProduct:(TSProduct *)product;
 
 @end

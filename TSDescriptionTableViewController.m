@@ -9,8 +9,9 @@
 #import "TSDescriptionTableViewController.h"
 #import "TSProduct.h"
 #import "TSDataManager.h"
+#import "TSDetailsTableViewController.h"
 
-@interface TSDescriptionTableViewController ()
+@interface TSDescriptionTableViewController () <UIScrollViewDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) TSProduct *currentProduct;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -26,25 +27,29 @@
     [super viewDidLoad];
     
     self.nameTextView.text = self.name;
-    self.priceTextView.text = [NSString stringWithFormat:@"$%@", self.price];
+    self.priceTextView.text = self.price;
     self.descriptionTextView.text = self.specification;
     
     self.pageControl.numberOfPages = [self.images count];
+    [self.tableView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+        
+    self.nameTextView.editable = NO;
+    self.priceTextView.editable = NO;
+    self.descriptionTextView.editable = NO;
     
-    self.nameTextView.scrollEnabled = NO;
+    [self.nameTextView setDelegate:self];
+    [self.priceTextView setDelegate:self];
+    [self.descriptionTextView setDelegate:self];
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    self.nameTextView.editable = NO;
-    self.priceTextView.editable = NO;
-    self.descriptionTextView.editable = NO;
     
     [self setupScroll];
 }
@@ -73,18 +78,40 @@
     [self.managedObjectContext deleteObject:self.currentProduct];
     [self.managedObjectContext save:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.tableView reloadData];
 }
 
 - (IBAction)editButton:(id)sender
 {
+    /*
     self.nameTextView.editable = YES;
     self.priceTextView.editable = YES;
     self.descriptionTextView.editable = YES;
     
     self.currentProduct.name = self.nameTextView.text;
-    self.currentProduct.price = self.priceTextView.text;
+    NSMutableString *formatingString = [NSMutableString stringWithString:self.priceTextView.text];
+    [formatingString insertString:@"$" atIndex:0];
+    [formatingString insertString:@"," atIndex:3];
+    
+    self.currentProduct.price = formatingString;
     self.currentProduct.specification = self.descriptionTextView.text;
     [self.managedObjectContext save:nil];
+     */
+    
+    TSDetailsTableViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TSDetailsTableViewController"];
+    controller.name = self.name;
+    controller.price = self.price;
+    controller.specification = self.specification;
+    controller.images = self.images;
+    //[self.managedObjectContext deleteObject:self.currentProduct];
+    //[self.managedObjectContext save:nil];
+    [controller editingCurrentProduct:self.currentProduct];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)actionDiscover:(UIBarButtonItem *)item
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - UIScrollView
@@ -112,6 +139,15 @@
     CGFloat pageWidth = scrollView.bounds.size.width;
     NSInteger pageNumber = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = pageNumber;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 @end

@@ -209,10 +209,10 @@
 			children = (
 				FDA79BAB1CF5CF4A002EB69F /* TSProductsTableViewController.h */,
 				FDA79BAC1CF5CF4A002EB69F /* TSProductsTableViewController.m */,
-				FDA79BB21CF5D464002EB69F /* TSDetailsTableViewController.h */,
-				FDA79BB31CF5D464002EB69F /* TSDetailsTableViewController.m */,
 				FDA79BB51CF5D47F002EB69F /* TSDescriptionTableViewController.h */,
 				FDA79BB61CF5D47F002EB69F /* TSDescriptionTableViewController.m */,
+				FDA79BB21CF5D464002EB69F /* TSDetailsTableViewController.h */,
+				FDA79BB31CF5D464002EB69F /* TSDetailsTableViewController.m */,
 			);
 			name = Controllers;
 			path = ..;

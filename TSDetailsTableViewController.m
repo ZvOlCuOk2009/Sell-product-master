@@ -7,16 +7,10 @@
 //
 
 #import "TSDetailsTableViewController.h"
-#import "TSProduct.h"
-#import "TSImages.h"
 #import "TSDataManager.h"
 #import <CoreData/CoreData.h>
 
-@interface TSDetailsTableViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
-@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
+@interface TSDetailsTableViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) UIImage *imageOne;
 @property (strong, nonatomic) UIImage *imageTwo;
@@ -28,7 +22,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
 
-@property (strong, nonatomic) TSProduct *product;
+@property (strong, nonatomic) TSProduct *currentProduct;
 @property (assign, nonatomic) NSInteger currentTag;
 
 @end
@@ -41,6 +35,9 @@
     self.title = @"Post your item";
     [self.navigationItem.backBarButtonItem setTitle:@""];
     self.arrayImages = [NSMutableArray array];
+    
+    [[self.navigationController.view viewWithTag:1] setHidden:YES];
+    [[self.navigationController.view viewWithTag:2] setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +48,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    self.hidesBottomBarWhenPushed = YES;
+    
+    self.nameTextField.text = self.name;
+    self.priceTextField.text = self.price;
+    self.descriptionTextField.text = self.specification;
+}
+
+- (void)editingCurrentProduct:(TSProduct *)product
+{
+    self.currentProduct = product;
 }
 
 #pragma mark - NSManagedObjectContext
@@ -108,13 +113,26 @@
 
 - (IBAction)postItAction:(id)sender
 {
+    if (self.currentProduct) {
+        [self saveNewProduct];
+        [self.managedObjectContext deleteObject:self.currentProduct];
+        [self.managedObjectContext save:nil];
+    } else {
+        [self saveNewProduct];
+    }
+}
+
+- (void)saveNewProduct
+{
     TSProduct *product = [NSEntityDescription insertNewObjectForEntityForName:@"TSProduct"
                                                        inManagedObjectContext:self.managedObjectContext];
     product.name = self.nameTextField.text;
-    product.price = self.priceTextField.text;
+    NSMutableString *formatingString = [NSMutableString stringWithString:self.priceTextField.text];
+    [formatingString insertString:@"$" atIndex:0];
+    [formatingString insertString:@"," atIndex:3];
+    product.price = formatingString;
     product.specification = self.descriptionTextField.text;
     product.images = [NSKeyedArchiver archivedDataWithRootObject:self.arrayImages];
-    [self.managedObjectContext save:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -150,6 +168,18 @@
     } else if (currentButton.tag == 2) {
         [currentButton setImage:self.imageThree forState:UIControlStateNormal];
     }
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.nameTextField && textField == self.descriptionTextField) {
+        [self.descriptionTextField becomeFirstResponder];
+    } else if (textField == self.priceTextField) {
+        [textField resignFirstResponder];
+    }
+    return YES;
 }
 
 @end
