@@ -83,28 +83,11 @@
 
 - (IBAction)editButton:(id)sender
 {
-    /*
-    self.nameTextView.editable = YES;
-    self.priceTextView.editable = YES;
-    self.descriptionTextView.editable = YES;
-    
-    self.currentProduct.name = self.nameTextView.text;
-    NSMutableString *formatingString = [NSMutableString stringWithString:self.priceTextView.text];
-    [formatingString insertString:@"$" atIndex:0];
-    [formatingString insertString:@"," atIndex:3];
-    
-    self.currentProduct.price = formatingString;
-    self.currentProduct.specification = self.descriptionTextView.text;
-    [self.managedObjectContext save:nil];
-     */
-    
     TSDetailsTableViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TSDetailsTableViewController"];
     controller.name = self.name;
     controller.price = self.price;
     controller.specification = self.specification;
     controller.images = self.images;
-    //[self.managedObjectContext deleteObject:self.currentProduct];
-    //[self.managedObjectContext save:nil];
     [controller editingCurrentProduct:self.currentProduct];
     [self.navigationController pushViewController:controller animated:YES];
 }
