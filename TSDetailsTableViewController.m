@@ -119,6 +119,7 @@
         [self.managedObjectContext save:nil];
     } else {
         [self saveNewProduct];
+        [self.managedObjectContext save:nil];
     }
 }
 

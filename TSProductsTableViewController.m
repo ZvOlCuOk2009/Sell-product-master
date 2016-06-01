@@ -18,8 +18,6 @@
 @interface TSProductsTableViewController () <NSFetchedResultsControllerDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) TSProduct *product;
-@property (strong, nonatomic) NSArray *arrayNames;
-@property (strong, nonatomic) NSArray *searchResultsArray;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) UISearchBar *searchBar;
@@ -50,16 +48,6 @@
 {
     [super viewWillAppear:YES];
     [self.tableView reloadData];
-    /*
-    UIButton *discover = [[UIButton alloc] initWithFrame:CGRectMake(0, 524, self.view.frame.size.width / 2, 44)];
-    [discover setBackgroundImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
-    UIButton *sell = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, 524, self.view.frame.size.width / 2, 44)];
-    [sell setBackgroundImage:[UIImage imageNamed:@"sell"] forState:UIControlStateNormal];
-    [self.navigationController.view addSubview:discover];
-    [self.navigationController.view addSubview:sell];
-     */
-    
-    self.arrayNames = [NSArray array];
     
     UIButton *discoverButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width / 2, 44)];
     [discoverButton setBackgroundImage:[UIImage imageNamed:@"discover"] forState:UIControlStateNormal];
@@ -74,6 +62,11 @@
 
     [self.navigationController.view addSubview:discoverButton];
     [self.navigationController.view addSubview:sellButton];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
 }
 
 #pragma mark - NSManagedObjectContext
@@ -161,74 +154,20 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    /*
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"TSProduct"];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TSProduct" inManagedObjectContext:self.managedObjectContext];
-    
-    fetchRequest.resultType = NSDictionaryResultType;
-    fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"name"]];
-    fetchRequest.returnsDistinctResults = YES;
-    
-    self.arrayNames = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    
-    
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
-    
-    self.searchResultsArray = [self.arrayNames filteredArrayUsingPredicate:resultPredicate];
-    */
-    
-    [self reloadTableView];
-    
-    //NSLog (@"names: %@", self.searchResultsArray);
-}
-
-
-//////////////////////////////
-
-
-- (void)reloadTableView
-{
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TSProduct"
-                                              inManagedObjectContext:[self managedObjectContext]];
-    [fetchRequest setEntity:entity];
-    
-    NSSortDescriptor *sortNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects: sortNameDescriptor, nil];
-    fetchRequest.sortDescriptors = sortDescriptors;
-    
-    //NSPredicate *idPredicate = [NSPredicate predicateWithFormat:@"agency_server_id CONTAINS[cd] %@", agency.server_id];
-    NSString *searchString = self.searchBar.text;
-    if (searchString.length > 0)
-    {
-        NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchString];
-        NSPredicate *orPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:[NSArray arrayWithObjects:namePredicate, nil]];
-//        NSPredicate *andPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:idPredicate, nil]];
-        NSPredicate *finalPred = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:orPredicate, nil]];
-        [fetchRequest setPredicate:finalPred];
-    }
-    else
-    {
-        //[fetchRequest setPredicate:idPredicate];
+    if ([searchText length] == 0) {
+        _fetchedResultsController = nil;
+    } else {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains[cd] %@", searchText];
+        [[_fetchedResultsController fetchRequest] setPredicate:predicate];
     }
     
-    self.fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest
-                                                                       managedObjectContext:[self managedObjectContext]sectionNameKeyPath:nil
-                                                                                  cacheName:nil];
-    self.fetchedResultsController.delegate = self;
-    
-    NSError *error = nil;
-    if (![self.fetchedResultsController performFetch:&error])
-    {
-        NSLog(@"Unresolved error %@, %@", [error localizedDescription], [error localizedFailureReason]);
-    };
+    NSError *error;
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
     
     [self.tableView reloadData];
 }
-
-
-//////////////////////////////
-
 
 #pragma mark - Fetched results controller
 
@@ -241,7 +180,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"TSProduct" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-    NSSortDescriptor *sortDescriptorImage = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSSortDescriptor *sortDescriptorImage = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     [fetchRequest setSortDescriptors:@[sortDescriptorImage]];
     
     NSFetchedResultsController *aFetchedResultsController =
