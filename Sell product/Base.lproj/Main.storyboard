@@ -204,7 +204,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="315"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Item hedline" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JBS-O7-BVV">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Item hedline" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JBS-O7-BVV">
                                                     <rect key="frame" x="22" y="18" width="556" height="39"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -218,10 +218,11 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
+                                                        <action selector="actionEventTextFieldName:" destination="jRd-qp-ClX" eventType="editingChanged" id="hMd-Qd-GrY"/>
                                                         <outlet property="delegate" destination="jRd-qp-ClX" id="cub-Kx-0px"/>
                                                     </connections>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    $    0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4lP-7e-jsE">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    $    0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4lP-7e-jsE">
                                                     <rect key="frame" x="22" y="204" width="556" height="39"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -235,10 +236,11 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
+                                                        <action selector="actionEventTextFieldPrice:" destination="jRd-qp-ClX" eventType="editingChanged" id="HKu-aO-uok"/>
                                                         <outlet property="delegate" destination="jRd-qp-ClX" id="MCi-2p-Chd"/>
                                                     </connections>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" placeholder="   Write a schort description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uOD-cy-ceE">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" placeholder="   Write a schort description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uOD-cy-ceE">
                                                     <rect key="frame" x="22" y="65" width="556" height="131"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -252,6 +254,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
+                                                        <action selector="actionEventTextFieldDescription:" destination="jRd-qp-ClX" eventType="editingChanged" id="tER-rV-KSr"/>
                                                         <outlet property="delegate" destination="jRd-qp-ClX" id="VXb-wb-Up0"/>
                                                     </connections>
                                                 </textField>

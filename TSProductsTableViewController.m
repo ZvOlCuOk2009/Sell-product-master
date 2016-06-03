@@ -76,6 +76,7 @@
     if (!_managedObjectContext) {
         _managedObjectContext = [[TSDataManager sharedManager] managedObjectContext];
     }
+    
     return _managedObjectContext;
 }
 

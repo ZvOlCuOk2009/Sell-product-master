@@ -75,10 +75,27 @@
 
 - (IBAction)trashButton:(id)sender
 {
-    [self.managedObjectContext deleteObject:self.currentProduct];
-    [self.managedObjectContext save:nil];
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    [self.tableView reloadData];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Are you"
+                                                                             message:@"Sure you want to remove this product"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *alertActionNo = [UIAlertAction actionWithTitle:@"No"
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction * _Nonnull action) {
+                                                            
+                                                        }];
+    
+    UIAlertAction *alertActionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                          style:UIAlertActionStyleDestructive
+                                                        handler:^(UIAlertAction * _Nonnull action) {
+                                                        [self.managedObjectContext deleteObject:self.currentProduct];
+                                                        [self.managedObjectContext save:nil];
+                                                        [self.navigationController popToRootViewControllerAnimated:YES];
+                                                        [self.tableView reloadData];
+                                                        }];
+    [alertController addAction:alertActionNo];
+    [alertController addAction:alertActionOk];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)editButton:(id)sender
@@ -88,7 +105,7 @@
     controller.price = self.price;
     controller.specification = self.specification;
     controller.images = self.images;
-    [controller editingCurrentProduct:self.currentProduct];
+    [controller currentProduct:self.currentProduct];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

@@ -21,6 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 
-- (void)editingCurrentProduct:(TSProduct *)product;
+- (void)currentProduct:(TSProduct *)product;
 
 @end
